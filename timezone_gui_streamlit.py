@@ -12,7 +12,6 @@ def load_timezone(file="region_info.json"):
     with open(file, 'r') as f:
         return json.load(f)
 
-
 def get_key(username):
     return st.secrets["general"].get(username)
 
@@ -103,6 +102,7 @@ with st.form("timezone_form"):
     outage = st.text_input("Outage for: ")
 
     submitted = st.form_submit_button("Convert")
+    filename = "outage_times.csv"  # default filename
 
     if submitted:
         try:
@@ -125,6 +125,6 @@ if 'csv_result' in st.session_state:
     st.download_button(
         label="Download CSV",
         data=st.session_state['csv_result'],
-        file_name=filename,
+        file_name=st.session_state.get('filename', 'outage_times.csv'),
         mime="text/csv"
     )
