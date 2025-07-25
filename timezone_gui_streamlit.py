@@ -12,19 +12,12 @@ def load_timezone(file="region_info.json"):
     with open(file, 'r') as f:
         return json.load(f)
 
-# def get_key(username, filename="secret.csv"):
-#     with open(filename, mode='r') as file:
-#         reader = csv.DictReader(file)
-#         for row in reader:
-#             if row['user'] == username:
-#                 return row['key']
-#     return None
 
 def get_key(username):
     return st.secrets["general"].get(username)
 
 
-def convert_timezones(start_dt, end_dt, outage=""):
+def convert_timezones(start_dt, end_dt):
     API_KEY = get_key("katy")
     if not API_KEY:
         st.error("API key not found for user 'katy'")
@@ -107,7 +100,7 @@ with st.form("timezone_form"):
         start_time = st.time_input("Start Time")
         end_time = st.time_input("End Time")
 
-    outage = st.text_input("Outage Description (optional)")
+    outage = st.text_input("Outage for: ")
 
     submitted = st.form_submit_button("Convert")
 
@@ -116,11 +109,11 @@ with st.form("timezone_form"):
             # Combine date and time
             start_dt = datetime.combine(start_date, start_time)
             end_dt = datetime.combine(end_date, end_time)
-
+            filename = f"{outage}_outage_times.csv"
             if end_dt <= start_dt:
                 st.error("End date/time must be after start date/time.")
             else:
-                csv_result = convert_timezones(start_dt, end_dt, outage)
+                csv_result = convert_timezones(start_dt, end_dt)
                 if csv_result:
                     st.session_state['csv_result'] = csv_result
                     st.success("Conversion complete! Download available below.")
@@ -132,6 +125,6 @@ if 'csv_result' in st.session_state:
     st.download_button(
         label="Download CSV",
         data=st.session_state['csv_result'],
-        file_name="outage_converted_times.csv",
+        file_name=filename,
         mime="text/csv"
     )
