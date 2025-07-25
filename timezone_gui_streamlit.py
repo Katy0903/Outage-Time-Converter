@@ -116,6 +116,7 @@ with st.form("timezone_form"):
                 csv_result = convert_timezones(start_dt, end_dt)
                 if csv_result:
                     st.session_state['csv_result'] = csv_result
+                    st.session_state['filename'] = filename 
                     st.success("Conversion complete! Download available below.")
         except Exception as e:
             st.error(f"Error: {str(e)}")
