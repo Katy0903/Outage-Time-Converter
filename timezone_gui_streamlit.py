@@ -53,7 +53,7 @@ def convert_timezones(start_dt, end_dt):
 
     writer.writerow([start_end_input_result[0], start_end_input_result[1], start_end_input_result[2]])
 
-    time.sleep(1)
+    time.sleep(2)
 
     for item in region_info:
         if item["region"] != "Vancouver, Canada":
