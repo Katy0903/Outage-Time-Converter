@@ -1,0 +1,50 @@
+[
+  {
+    "region": "Vancouver, Canada",
+    "timezone": "America/Vancouver"
+  },
+  {
+    "region": "Medicine Hat, Canada",
+    "timezone": "America/Edmonton"
+  },
+  {
+    "region": "Dallas, USA",
+    "timezone": "America/Chicago"
+  },
+  {
+    "region": "Geismar, USA",
+    "timezone": "America/Chicago"
+  },
+  {
+    "region": "Port of Spain, Trinidad and Tobago",
+    "timezone": "America/Port_of_Spain"
+  },
+  {
+    "region": "Santiago, Chile",
+    "timezone": "America/Santiago"
+  },
+  {
+    "region": "Punta Arenas, Chile",
+    "timezone": "America/Punta_Arenas"
+  },
+  {
+    "region": "Brussels, Belgium",
+    "timezone": "Europe/Brussels"
+  },
+  {
+    "region": "Cairo, Egypt",
+    "timezone": "Africa/Cairo"
+  },
+  {
+    "region": "Shanghai, China",
+    "timezone": "Asia/Shanghai"
+  },
+  {
+    "region": "Hong Kong, Hong Kong",
+    "timezone": "Asia/Hong_Kong"
+  },
+  {
+    "region": "New Plymouth, New Zealand",
+    "timezone": "Pacific/Auckland"
+  }
+]
