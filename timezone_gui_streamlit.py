@@ -53,7 +53,7 @@ def convert_timezones(start_dt, end_dt):
 
     writer.writerow([start_end_input_result[0], start_end_input_result[1], start_end_input_result[2]])
 
-    time.sleep(2)
+    time.sleep(3)
 
     for item in region_info:
         if item["region"] != "Vancouver, Canada":
@@ -64,7 +64,7 @@ def convert_timezones(start_dt, end_dt):
             for input in start_end_timestamp:
                 target_url = f"http://api.timezonedb.com/v2.1/convert-time-zone?key={API_KEY}&format=json&from={Vancouver_tz}&to={target_region_tz}&time={input}"
                 target_response = requests.get(target_url)
-                time.sleep(2)
+                time.sleep(3)
 
                 target_data = target_response.json()
                 target_timestamp = target_data["toTimestamp"]
